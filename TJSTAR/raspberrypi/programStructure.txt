@@ -1,0 +1,34 @@
+Raspberry Pi
+    main.py
+    -main (multithreading)
+        -gui call mainGui (GUI.py)
+        -arduino communication call mainArduinoComm (ArduinoComm.py)
+    
+    GUI.py
+        -home
+            -add med
+            -remove med
+            -settings
+                -user name
+                -emergency contacts
+                    -contact
+
+    ArduinoComm.py
+    -mainArduinoComm
+        -while loop to monitior time and check if the current time matches a time in the schedule.txt file, only send traynumber and amount to arduino
+
+    schedule.txt
+    -shows the different times, delimited by a \t (day hour minute traynumber amount medname)
+
+    stock.txt
+    -keeps track of the amount of medicine left, when time to dispense the amount is changed
+
+Arduino
+    stepperControl.ino
+        -moveToTray(int traynumber)
+        -dispense(int amount)
+        -loop
+            -monitor for messages
+            -break recieved message into relevant values
+            -moveToTray(trayNumber) -> uses currentPosition of Y stepper
+            -dispense(trayNumber)
