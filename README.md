@@ -1,2 +1,2 @@
 # meds
-senior project
+Senior research project
